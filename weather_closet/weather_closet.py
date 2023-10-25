@@ -4,6 +4,7 @@ import gc
 import time
 import sh1106
 import framebuf
+import ClothingManager
 import urequests as requests
 import ure as re
 from machine import Pin, I2C
@@ -12,10 +13,9 @@ from machine import Pin, I2C
 esp.osdebug(None)
 gc.collect()
 
-SSID = 'Natalia_Mi'
-PASSWORD = '188804115'
-URL_API = 'http://api.meteored.cl/index.php?api_lang=cl&localidad=18578&affiliate_id=tmmvlzsz8496'
-
+SSID = 'YOUR SSID'
+PASSWORD = 'YOUR PASS'
+URL_API = 'YOUR URL API'
 
 
 def connectWifi(ssid, password):
@@ -104,7 +104,34 @@ def showInOled(data):
     
     oled.show()
 
-
+def suggestOutfit(manager, id_weather):
+    clothes_suggest = {
+        1 : []
+        2 : []
+        3 : []
+        4 : []
+        5 : []
+        6 : []  
+        7 : []
+        8 : []
+        9 : []
+        10 : []
+        11 : []
+        12 : []
+        13 : []
+        14 : []
+        15 : []
+        16 : []
+        17 : []
+        18 : []
+        19 : []
+        20 : []
+        21 : []
+        22 : []
+    }
+    manager.wear(id_weather)
+    manager.turnOnLed()
+    
 
 i2c = I2C(scl=Pin(5), sda=Pin(4), freq=400000)
 oled = sh1106.SH1106_I2C(128, 64, i2c, Pin(16), 0x3c)
@@ -122,9 +149,18 @@ data_dict = {"Temperatura Mínima": "",
 for tag in data_dict:
     data_dict[tag] = getVar(data_api, tag)
     
-
 showInOled(data_dict)
 print(data_dict)
+
+data_pin = Pin(13, Pin.OUT)
+clk_pin = Pin(12, Pin.OUT)
+latch_pin = Pin(14, Pin.OUT)
+
+clothing_manager = ClothingManager(data_pin, clk_pin, latch_pin)
+
+suggestOutfit(manager, data_dict["Símbolo del tiempo"])
+
+
 
 
 
