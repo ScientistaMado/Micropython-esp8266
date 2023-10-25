@@ -1,5 +1,10 @@
+from machine import Pin
+
 class ClothingManager():
-    def __init__(self):
+    def __init__(self, data_pin, clock_pin, latch_pin):
+        self.data_pin = data_pin
+        self.clock_pin = clock_pin 
+        self.latch_pin = latch_pin
         self.clothes = [0] * 14
         self.clothing_mapping = {
             "RainBoots": 0,
@@ -27,3 +32,13 @@ class ClothingManager():
             else:
                 print(f"Prenda no válida: {clothe}")
         return self.clothes
+    
+    def turnOnLed(self):
+        self.latch_pin.value(0)
+
+        for status_led in self.clothes:
+            self.clock_pin.value(0)
+            self.data_pin.value(status_led)
+            self.clock_pin.value(1)
+            
+        self.latch_pin(1)
