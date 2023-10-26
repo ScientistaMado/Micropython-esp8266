@@ -106,9 +106,9 @@ def showInOled(data):
 
 def suggestOutfit(manager, id_weather):
     clothes_suggest = {
-        1 : []
-        2 : []
-        3 : []
+        1 : ["TShirt", "Shorts", "Sandals", "Sneakers"]
+        2 : ["TShirt", "Pants", "Sneakers", "Vest"]
+        3 : ["TShirt", "Pants", "Sneakers", "Jacket"]
         4 : []
         5 : []
         6 : []  
