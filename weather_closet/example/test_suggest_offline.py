@@ -3,7 +3,7 @@ import gc
 import time
 import sh1106
 import framebuf
-import ClothingManager
+from ClothingManager import ClothingManager
 from machine import Pin, I2C
 
 
@@ -11,7 +11,7 @@ esp.osdebug(None)
 gc.collect()
 
 
-data_dicts = {
+data_dicts = [
     {"Temperatura Mínima": "12",
      "Temperatura Máxima": "20",
      "Día": "Lunes",
@@ -46,8 +46,7 @@ data_dicts = {
      "Temperatura Máxima": "19",
      "Día": "Domingo",
      "Símbolo del tiempo": "4"},
-
-}
+]
 
 
 def openIcon(icon_id):
@@ -71,7 +70,7 @@ def showInOled(data):
     if day == "Miércoles":
         day = "Miercoles"
     if day == "Sábado":
-        day = "Sábado"
+        day = "Sabado"
 
     oled.text(day, day_x, 2)
 
@@ -92,13 +91,14 @@ oled.sleep(False)
 oled.fill(0)
 
 data_pin = Pin(13, Pin.OUT)
-clk_pin = Pin(12, Pin.OUT)
-latch_pin = Pin(14, Pin.OUT)
+clk_pin = Pin(14, Pin.OUT)
+latch_pin = Pin(12, Pin.OUT)
 
 clothing_manager = ClothingManager(data_pin, clk_pin, latch_pin)
 
 for data_dict in data_dicts:
 
     showInOled(data_dict)
+    print(data_dict)
     clothing_manager.suggestOutfit(data_dict)
     time.sleep(2)

@@ -90,7 +90,7 @@ def showInOled(data):
     if day == "Miércoles":
         day = "Miercoles"
     if day == "Sábado":
-        day = "Sábado"
+        day = "Sabado"
 
     oled.text(day, day_x, 2)
 
@@ -125,8 +125,8 @@ showInOled(data_dict)
 print(data_dict)
 
 data_pin = Pin(13, Pin.OUT)
-clk_pin = Pin(12, Pin.OUT)
-latch_pin = Pin(14, Pin.OUT)
+clk_pin = Pin(14, Pin.OUT)
+latch_pin = Pin(12, Pin.OUT)
 
 clothing_manager = ClothingManager(data_pin, clk_pin, latch_pin)
 
