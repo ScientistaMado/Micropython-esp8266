@@ -8,24 +8,24 @@ class ClothingManager():
         self.latch_pin = latch_pin
         self.clothes = [0] * 14
         self.clothing_mapping = {
-            "RainBoots": 0,
-            "Boots": 1,
-            "AnkleBoots": 2,
-            "Parka": 3,
-            "Coat": 4,
-            "Jacket": 5,
-            "Sandals": 6,
-            "Sneakers": 7,
-            "Shorts": 8,
-            "Pants": 9,
-            "Vest": 10,
-            "Hoodie": 11,
-            "LSTShirt": 12,
-            "TShirt": 13
+            "RainBoots": 2,
+            "Boots": 3,
+            "AnkleBoots": 4,
+            "Parka": 5,
+            "Coat": 6,
+            "Jacket": 7,
+            "Sandals": 8,
+            "Sneakers": 9,
+            "Shorts": 10,
+            "Pants": 11,
+            "Vest": 12,
+            "Hoodie": 13,
+            "LSTShirt": 14,
+            "TShirt": 15
         }
 
     def wear(self, *clothes):
-        self.clothes = [0] * 14  # Reiniciar la lista de ropa
+        self.clothes = [0] * 16  # Reiniciar la lista de ropa
         for clothe in clothes:
             if clothe in self.clothing_mapping:
                 position = self.clothing_mapping[clothe]
