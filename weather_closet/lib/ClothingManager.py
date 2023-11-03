@@ -7,21 +7,22 @@ class ClothingManager():
         self.clock_pin = clock_pin
         self.latch_pin = latch_pin
         self.clothes = [0] * 16
+
         self.clothing_mapping = {
-            "RainBoots": 2,
-            "Boots": 3,
-            "AnkleBoots": 4,
-            "Parka": 5,
-            "Coat": 6,
-            "Jacket": 7,
-            "Sandals": 8,
-            "Sneakers": 9,
-            "Shorts": 10,
-            "Pants": 11,
-            "Vest": 12,
-            "Hoodie": 13,
-            "LSTShirt": 14,
-            "TShirt": 15
+            "Parka": 2,          # Parka, impermeables
+            "Jacket": 3,         # Chaqueta, más gruesa que un chaleco
+            "Coat": 4,           # Abrigos largos, bufanda, etc
+            "RainBoots": 5,      # Paraguas y botas de agua
+            "Boots": 6,          # Botas
+            "AnkleBoots": 7,     # Botines
+            "TShirt": 13,        # Polera manga corta
+            "Pants": 8,          # Pantalón largo
+            "Shorts": 9,         # Pantalones cortos, bermudas
+            "Sandals": 10,       # Sandalias, alpargatas, chalas
+            "Sneakers": 11,      # Zapatillas o zapatos
+            "Hoodie": 12,        # Polerón cerrado
+            "LSTShirt": 14,      # Polera manga larga o camisa
+            "Vest": 15,          # Chalecos delgados y abiertos
         }
 
     def wear(self, clothes):
