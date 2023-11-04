@@ -7,7 +7,7 @@ Este proyecto es un ejemplo de una aplicación que obtiene datos de pronóstico 
 - Microcontrolador ESP8266
 - Pantalla OLED SH1106
 - Conexión a Internet
-- Bibliotecas de Python para micropython
+- Modelos 3D impresos Closet_bottom y Closet_frontis de la carpeta Diseños 3D
 
 ## Configuración
 
