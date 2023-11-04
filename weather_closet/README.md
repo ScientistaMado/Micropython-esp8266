@@ -21,7 +21,13 @@ Asegúrate de haber conectado físicamente tu dispositivo al hardware correspond
 
 ## Uso
 
-1. El código se encarga de conectarse a tu red Wi-Fi proporcionando las credenciales (`SSID` y `PASSWORD`) y luego obtiene datos del pronóstico del tiempo desde la API definida en `URL_API`.
+1. Debes subir a tu placa NodeMCU 8266 los archivos weather_closet.py renombrándolo como main.py para que pueda ser ejecutado al iniciar la placa
+
+2. Para controlar el display oled y los led se requiere que subas la carpeta lib a la placa
+
+3. Para que la pantalla oled pueda mostrar los íconos debes crear en la placa una carpeta que se llame 'icons' y solo subir los archivos que se encuentran dentro de la carpeta icons/pbm.
+
+4. El código se encarga de conectarse a tu red Wi-Fi proporcionando las credenciales (`SSID` y `PASSWORD`) y luego obtiene datos del pronóstico del tiempo desde la API definida en `URL_API`. Puedes obtener el link a la API registrándote en https://www.meteored.cl/api/
 
 2. Los datos del pronóstico del tiempo se muestran en la pantalla OLED, incluyendo el día de la semana, temperaturas mínimas y máximas, y un ícono que representa el estado del tiempo.
 
