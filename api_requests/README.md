@@ -1,5 +1,7 @@
 # Programa base micropython ESP8266 consulta API
 
+![ESP8266](https://img.shields.io/badge/ESP8266-Compatible-blue)
+
 ## Instrucciones
 
 1. Reemplaza SSID, PASSWORD y URL_API con los datos de que necesites. Por el momento el código
