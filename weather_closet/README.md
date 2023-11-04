@@ -1,5 +1,7 @@
 # Recomendador de ropa Micropython ESP8266
 
+![ESP8266](https://img.shields.io/badge/ESP8266-Compatible-blue)
+
 Este proyecto es un ejemplo de una aplicación que obtiene datos de pronóstico del tiempo de una API y muestra la información en una pantalla OLED en un dispositivo basado en el microcontrolador ESP8266.
 
 ## Requisitos
