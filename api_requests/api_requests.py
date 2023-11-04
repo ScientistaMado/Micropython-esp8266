@@ -9,8 +9,6 @@ Este código es la base para conectar un nodeMCU ESP8266 a una red WiFi y realiz
 """
 
 
-# Importar las bibliotecas necesarias
-
 import network  # Para gestionar la conexión a la red
 import gc       # Para recolección de basura
 import time     # Para manejar el tiempo
