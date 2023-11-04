@@ -6,6 +6,10 @@ Este proyecto es un ejemplo de una aplicación que obtiene datos de pronóstico 
 
 - Microcontrolador ESP8266
 - Pantalla OLED SH1106
+- 2 Registros de desplazamiento 74hc595 o 74hc595n
+- Shield 18650 de una celda
+- Una bateria 18650
+- Placas PCB perforadas
 - Conexión a Internet
 - Modelos 3D impresos Closet_bottom y Closet_frontis de la carpeta Diseños 3D
 
