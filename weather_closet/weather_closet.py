@@ -30,9 +30,10 @@ def connectWifi(ssid, password):
 
     while not station.isconnected():
         print('conectando')
-        oled.text(".", dot+6, 10)
+        oled.text(".", dot, 20)
         oled.show()
         time.sleep(1)
+        dot += 6
 
     print(f'Conectado con éxito a {ssid}')
 
