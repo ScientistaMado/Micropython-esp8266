@@ -1,28 +1,50 @@
-import network
-import gc
-import urequests as requests
+""" 
+Este código es la base para conectar un nodeMCU ESP8266 a una red WiFi y realizar una solicitud a una API.
 
+1. Se importan las bibliotecas necesarias y se realiza una recolección de basura para liberar memoria.
+2. Se configuran las credenciales de la red WiFi y la URL de la API a la que se va a acceder.
+3. Se define una función para conectarse a la red WiFi y otra para obtener datos de la API.
+4. Después de conectarse con éxito a la red WiFi, se realiza una solicitud a la API y se muestra la respuesta.
+
+"""
+
+
+# Importar las bibliotecas necesarias
+
+import network  # Para gestionar la conexión a la red
+import gc       # Para recolección de basura
+import time     # Para manejar el tiempo
+import urequests as requests  # Para realizar solicitudes HTTP
+
+# Limpiar la memoria
 gc.collect()
 
-SSID = 'YOUR SSID'
-PASSWORD = 'YOUR PASS'
-URL_API = 'YOUR URL API'
+SSID = 'TU SSID'        # Nombre de la red WiFi
+PASSWORD = 'TU PASS'    # Contraseña de la red WiFi
+URL_API = 'TU URL API'  # URL de la API a la que se va a acceder
+
+# Función para conectar a la red WiFi
 
 
 def connectWifi(ssid, password):
+    # Inicializar la interfaz de estación
 
     station = network.WLAN(network.STA_IF)
-    station.active(True)
+    station.active(True)                    # Activar la interfaz
     station.connect(ssid, password)
 
     while not station.isconnected():
-        print('conectando')
+        print('Conectando...')
+        time.sleep(1)
 
-    print(f'Conectado con éxito a {ssid}')
+    print(f'Conexión exitosa a {ssid}')
 
 
 def fetchApi(api_url, timeout=10):
+    # Función para obtener datos de la API
+
     try:
+        # Realizar una solicitud GET
         response = requests.get(api_url, timeout=timeout)
 
         if response.status_code == 200:
@@ -35,3 +57,11 @@ def fetchApi(api_url, timeout=10):
     except Exception as e:
         print('Error en la solicitud:', str(e))
         return None
+
+
+# Conectar a la red WiFi
+connectWifi(SSID, PASSWORD)
+
+# Se solicitan los datos e imprimen en consola
+data = fetchApi(URL_API)
+print(data)
