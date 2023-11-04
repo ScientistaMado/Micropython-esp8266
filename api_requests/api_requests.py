@@ -1,5 +1,6 @@
 import network
 import gc
+import urequests as requests
 
 gc.collect()
 
@@ -18,10 +19,6 @@ def connectWifi(ssid, password):
         print('conectando')
 
     print(f'Conectado con éxito a {ssid}')
-
-    oled.fill(0)
-    oled.text("Conectado", 10, 10)
-    oled.show()
 
 
 def fetchApi(api_url, timeout=10):
