@@ -1,3 +1,5 @@
+# Importamos bibliotecas necesarias
+
 import network
 import esp
 import gc
