@@ -6,7 +6,7 @@ import gc
 import time
 import sh1106
 import framebuf
-import ClothingManager
+from clothingmanager import ClothingManager
 import urequests as requests
 import ure as re
 from machine import Pin, I2C
@@ -60,11 +60,11 @@ def fetchApi(api_url, timeout=10):
         return None
 
 
-def getVar(report, tag_element):
+def getVar(report, text_element):
 
-    start = report.find(tag_element)
+    start = report.find(text_element)
 
-    if tag == "Símbolo del tiempo":
+    if text_element == "Símbolo del tiempo":
         var = re.search(r'id="(.*?)"', report[start:])
     else:
         var = re.search(r'value="(.*?)"', report[start:])
