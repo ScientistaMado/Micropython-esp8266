@@ -108,7 +108,7 @@ def showInOled(data):
     oled.show()
 
 # Conf to Raspberry Pi Pico W
-# i2c = I2C(scl=Pin(17), sda=Pin(16), freq=400000)
+# i2c = I2C(0, scl=Pin(17), sda=Pin(16), freq=400000)
 # oled = sh1106.SH1106_I2C(128, 64, i2c, Pin(28), 0x3c)
 
 
