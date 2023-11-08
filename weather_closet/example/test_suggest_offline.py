@@ -3,7 +3,7 @@ import gc
 import time
 import sh1106
 import framebuf
-from ClothingManager import ClothingManager
+from clothingmanager import ClothingManager
 from machine import Pin, I2C
 
 
