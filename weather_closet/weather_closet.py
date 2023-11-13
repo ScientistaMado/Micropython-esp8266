@@ -112,6 +112,7 @@ def showInOled(data):
 # oled = sh1106.SH1106_I2C(128, 64, i2c, Pin(28), 0x3c)
 
 
+# Configuración para ESP266
 i2c = I2C(scl=Pin(5), sda=Pin(4), freq=400000)
 oled = sh1106.SH1106_I2C(128, 64, i2c, Pin(16), 0x3c)
 
@@ -132,9 +133,17 @@ for tag in data_dict:
 showInOled(data_dict)
 print(data_dict)
 
-data_pin = Pin(13, Pin.OUT)
-clk_pin = Pin(14, Pin.OUT)
-latch_pin = Pin(12, Pin.OUT)
+
+# Configuración para Raspberry Pi Pico W
+# data_pin = Pin(10, Pin.OUT)
+# clk_pin = Pin(11, Pin.OUT)
+# latch_pin = Pin(12, Pin.OUT)
+
+
+# Configuración para ESP266
+data_pin = Pin(14, Pin.OUT)
+clk_pin = Pin(12, Pin.OUT)
+latch_pin = Pin(13, Pin.OUT)
 
 clothing_manager = ClothingManager(data_pin, clk_pin, latch_pin)
 
